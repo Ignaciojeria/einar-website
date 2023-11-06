@@ -29,7 +29,6 @@ func init() {
 
 func render(c echo.Context) error {
 	routerState := einar.NewRoutingState(c, map[string]string{
-		component.IndexComponentDefault:  component.Topbar,
 		component.TopbarComponentDefault: component.Lessons,
 	})
 	if c.Request().Header.Get(component.FlatContext) != "" {

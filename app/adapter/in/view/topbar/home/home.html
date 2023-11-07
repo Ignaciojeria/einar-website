@@ -3,7 +3,7 @@
         <!-- Tooltip posicionado absolutamente para que no afecte el flujo del texto del eslogan -->
         <div x-data="{ copyText: 'go install github.com/Ignaciojeria/einar@v1.26.0' }" class="absolute left-20 top-16 tooltip tooltip-top tooltip-accent" data-tip="copy">
             <button x-on:click="navigator.clipboard.writeText(copyText)" class="btn btn-sm cursor-copy rounded-full font-mono font-light normal-case">
-                <pre><code x-text="copyText">go install github.com/Ignaciojeria/einar@v1.26.0</code></pre>
+                <pre><code x-text="copyText"></code></pre>
             </button>
         </div>        
         <h1 class="mt-20 ml-12 text-5xl font-extrabold text-white"> <!-- Margen superior e izquierdo, tamaño de texto responsivo, fuente más gruesa y color blanco -->

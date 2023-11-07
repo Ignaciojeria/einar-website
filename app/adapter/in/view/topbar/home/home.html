@@ -1,1 +1,19 @@
-WELCOME TO HOME
+<div class="flex flex-col justify-start items-start h-screen"> <!-- Contenedor que alinea el contenido arriba a la izquierda -->
+    <div class="relative p-8 w-1/2"> <!-- Bloque con padding, ancho de la mitad de la pantalla y posicionamiento relativo -->
+        <!-- Tooltip posicionado absolutamente para que no afecte el flujo del texto del eslogan -->
+        <div class="absolute left-20 top-16 tooltip tooltip-top tooltip-accent" data-tip="copy"> <!-- Ajusta las clases left- y top- para posicionar el tooltip -->
+            <button class="btn btn-sm cursor-copy rounded-full font-mono font-light normal-case">
+                <pre><code>go install github.com/Ignaciojeria/einar@v1.26.0</code></pre>
+            </button>
+        </div>
+        <h1 class="mt-20 ml-12 text-5xl font-extrabold text-white"> <!-- Margen superior e izquierdo, tamaño de texto responsivo, fuente más gruesa y color blanco -->
+            BUILD APPLICATIONS 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-300">FASTER.</span>
+        </h1>
+        <p class="ml-12 text-xl text-gray-400 font-bold mt-4"> <!-- Texto con un tamaño fijo, ligeramente oscuro y en negrita -->
+            EinarCLI is a powerful command-line interface tool designed to 
+            <span class="text-orange-400">supercharge</span> 
+            your application development process.
+        </p>        
+    </div>
+</div>

@@ -1,41 +1,43 @@
-<div class="flex h-screen"> <!-- Contenedor Flex principal para dividir la pantalla en dos -->
-
-    <!-- Primera mitad con el eslogan, descripción y tooltip -->
-    <div class="relative p-8 w-1/2"> <!-- Bloque con padding, ancho de la mitad de la pantalla y posicionamiento relativo -->
-        <!-- Tooltip posicionado absolutamente para que no afecte el flujo del texto del eslogan -->
-        <div x-data="{ copyText: 'go install github.com/Ignaciojeria/einar@v1.26.0' }" class="absolute left-20 top-16 tooltip tooltip-top tooltip-accent" data-tip="copy">
-            <button x-on:click="navigator.clipboard.writeText(copyText)" class="btn btn-sm cursor-copy rounded-full font-mono font-light normal-case">
-                <pre><code x-text="copyText"></code></pre>
-            </button>
-        </div>
-        <!-- Eslogan principal -->
-        <h1 class="mt-20 ml-12 text-5xl font-extrabold text-white">
-            BUILD APPLICATIONS 
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-300">FASTER.</span>
-        </h1>
-        <!-- Descripción del eslogan -->
-        <p class="ml-12 text-xl text-gray-400 font-bold mt-4">
-            EinarCLI is a powerful command-line interface tool designed to 
-            <span class="text-orange-400">supercharge</span> 
-            your application development process.
-        </p>        
+<div class="container mt-8 mx-auto h-64" style="display: grid; grid-template-columns: 1fr 1fr;">
+    <!-- Parte izquierda blanca con el contenido del hero -->
+    <div class="flex flex-col justify-center items-start p-8">
+      <!-- Tooltip para copiar el comando de instalación -->
+      <!-- Asegúrate de agregar aquí tu tooltip si es necesario -->
+      <div x-data="{ copyText: 'go install github.com/Ignaciojeria/einar@v1.26.0' }" class="tooltip tooltip-top tooltip-accent" data-tip="copy">
+        <button x-on:click="navigator.clipboard.writeText(copyText)" class="btn btn-sm cursor-copy rounded-full font-mono font-light normal-case">
+            <pre><code x-text="copyText"></code></pre>
+        </button>
+    </div>
+      <!-- Eslogan principal -->
+      <h1 class="text-5xl font-bold text-white">
+        BUILD APPLICATIONS 
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-300">FASTER.</span>
+      </h1>
+      <!-- Descripción del eslogan -->
+      <p class="text-xl text-gray-400 font-bold mt-4">
+        EinarCLI is a powerful command-line interface tool designed to 
+        <span class="text-orange-400">supercharge</span> 
+        your application development process.
+      </p>
     </div>
     
-    <!-- Segunda mitad con el contenido del hero -->
-    <div class="hero min-h-screen w-1/2 pb-96 bg-gradient-to-r from-base-100  to-base-300"> <!-- Bloque hero con ancho de la mitad de la pantalla -->
+ 
+    <div  class="bg-gradient-to-r from-base-100  to-base-200">
+<!-- Bloque hero con ancho de la mitad de la pantalla -->
         <div class="hero-content flex-col lg:flex-row">
             <!-- Imagen del hero -->
             <img src="https://i.ibb.co/pJw5MDr/Whats-App-Image-2023-11-07-at-15-08-28.jpg" class="w-52 rounded-lg shadow-2xl" />
             <!-- Contenido de texto del hero -->
             <div>
-                <h1 class="text-5xl font-bold">EinarCLI News!</h1>
+                <h1 class="text-5xl font-bold text-white">EinarCLI News!</h1>
                 <p class="py-6">
                     Stay ahead of the curve! Dive into our latest updates, cutting-edge improvements, and thrilling news. Uncover the intricacies of our development, integration and testing processes. Your journey into innovation begins here.
                 </p>
                 <!-- Botón de acción del hero -->
                 <button class="btn btn-primary">Explore now</button>
             </div>
-        </div>
-    </div>
 
-</div>
+    </div>
+    </div>
+  </div>
+  

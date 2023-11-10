@@ -16,6 +16,13 @@
         {
             "name": "web-components",
             "libraries": []
+        },
+        {
+            "name": "firestore",
+            "libraries": [
+                "cloud.google.com/go/firestore",
+                "firebase.google.com/go"
+            ]
         }
     ],
     "components": [
@@ -38,6 +45,26 @@
         {
             "kind": "web-component",
             "name": "docs"
+        },
+        {
+            "kind": "web-component",
+            "name": "start-building"
+        },
+        {
+            "kind": "web-component",
+            "name": "quick-access"
+        },
+        {
+            "kind": "usecase",
+            "name": "quick-access"
+        },
+        {
+            "kind": "firestore-repository",
+            "name": "find-user-by-email"
+        },
+        {
+            "kind": "firestore-repository",
+            "name": "save-user"
         }
     ]
 }

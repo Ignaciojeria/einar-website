@@ -1,9 +1,9 @@
 package echo_server
 
 import (
+	"fmt"
 	"my-project-name/app/shared/archetype/container"
 	"my-project-name/app/shared/config"
-	"fmt"
 	"net/http"
 
 	"github.com/google/uuid"
@@ -21,6 +21,12 @@ func init() {
 		Echo = echo.New()
 		Echo.Use(middleware.Logger())
 		Echo.Use(middleware.Recover())
+		// Add CORS middleware to allow all origins
+		Echo.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+			AllowOrigins: []string{"*"},
+			AllowMethods: []string{echo.GET, echo.PUT, echo.POST, echo.DELETE},
+			AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+		}))
 		return nil
 	}, container.InjectionProps{DependencyID: uuid.NewString()})
 
@@ -29,7 +35,11 @@ func init() {
 		for _, route := range Echo.Routes() {
 			fmt.Printf("Method: %v, Path: %v, Name: %v\n", route.Method, route.Path, route.Name)
 		}
-		err := Echo.Start(":" + config.PORT.Get())
+		PORT := config.PORT.Get()
+		if config.PORT.Get() == "" {
+			PORT = "80"
+		}
+		err := Echo.Start(":" + PORT)
 		if err != nil {
 			log.Error().Err(err).Msg("error initializing application server")
 			return err

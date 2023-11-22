@@ -13,16 +13,13 @@ import (
 
 	_ "my-project-name/app/adapter/in/view/topbar/lessons"
 
+	_ "my-project-name/app/adapter/in/view/quick_access"
+
 	_ "my-project-name/app/adapter/in/view/topbar/events"
 
 	_ "my-project-name/app/adapter/in/view/topbar/docs"
 
-	_ "my-project-name/app/adapter/in/view/quick_access"
-
 	"github.com/rs/zerolog"
-	_ "my-project-name/app/shared/archetype/firestore"
-	_ "my-project-name/app/business"
-	_ "my-project-name/app/adapter/out/firestore"
 )
 
 // ARCHETYPE CONFIGURATION

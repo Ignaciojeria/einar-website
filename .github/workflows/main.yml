@@ -7,9 +7,9 @@ on:
 
 jobs:
   dagger:
-     permissions:
-     contents: 'read'
-     id-token: 'write'
+    permissions:
+    contents: 'read'
+    id-token: 'write'
     runs-on: ubuntu-latest
     steps:
       -

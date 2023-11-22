@@ -16,6 +16,7 @@ const GCR_PUBLISH_ADDRESS = "gcr.io/einar-404623/einar"
 
 func main() {
 	godotenv.Load()
+
 	// create Dagger client
 	ctx := context.Background()
 	daggerClient, err := dagger.Connect(ctx, dagger.WithLogOutput(os.Stderr))

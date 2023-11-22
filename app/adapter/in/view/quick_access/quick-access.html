@@ -1,0 +1,55 @@
+<script src="//unpkg.com/alpinejs" defer></script>
+<div class="flex justify-center items-center" x-data="pingComponent()" x-init="init()">
+    <div class="w-1/2 p-2 shadow-lg rounded-lg">
+        <div class="mockup-code quick-access-mockup-code">
+            <pre data-prefix="$"><code x-text="`einar connect`"></code></pre>
+            <pre data-prefix="$"><code x-text="connectionStatus"></code></pre>
+        </div>
+        <div class="flex justify-between items-center mt-2">
+            <input disabled  type="text" :placeholder="projectName ? projectName : 'Copy & Paste connection command'" class="input flex-grow mr-2" x-model="projectName" />
+            <button class="btn" x-on:click="navigator.clipboard.writeText('einar connect')">
+                COPY CONNECTION
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function pingComponent() {
+        return {
+            projectName: '',
+            connectionStatus: 'waiting for connection...',
+
+            pingUrlAndUpdate: function() {
+                fetch('http://localhost:55555/')
+                    .then(response => {
+                        if (response.ok) {
+                            this.connectionStatus = 'connected';
+                            return response.json();
+                        } else {
+                
+                        this.connectionStatus = 'waiting for connection...';
+                        this.projectName = "Copy & Paste connection command"
+                            throw new Error('Respuesta no exitosa');
+                        }
+                    })
+                    .then(data => {
+                        this.projectName = data.workDir;
+                    })
+                    .catch(error => {
+                        console.error('Error al hacer ping:', error);
+                        this.connectionStatus = 'waiting for connection...';
+                        this.projectName = "Copy & Paste connection command"
+                    });
+            },
+
+            init: function() {
+                this.pingUrlAndUpdate();
+                setInterval(() => {
+                    this.pingUrlAndUpdate();
+                }, 2000);
+            }
+        }
+    }
+
+</script>

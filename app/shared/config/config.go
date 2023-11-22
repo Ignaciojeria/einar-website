@@ -64,15 +64,12 @@ func Setup() error {
 	errs := []string{}
 
 	if err := godotenv.Load(); err != nil {
-		log.Error().Err(err).Msg(".env file not found getting environments from envgonsul")
+		log.Error().Err(err).Msg(".env file not found getting environments from system")
 	}
 
 	// Check that all required environment variables are set
 	requiredEnvVars := []Config{
 		//ARCHETYPE CONFIGURATION
-		PORT,
-		COUNTRY,
-		SERVICE,
 	}
 
 	if Installations.EnablePubSub || Installations.EnableFirestore {

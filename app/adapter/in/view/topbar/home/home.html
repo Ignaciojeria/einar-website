@@ -1,34 +1,37 @@
 <div class="container mt-20 mx-auto h-72 2xl:mt-24 2xl:h-80" style="display: grid; grid-template-columns: 1fr 1fr;">
-  <div class="flex flex-col justify-center items-start p-10 2xl:p-12">
-      <div x-data="{ copyText: 'go install github.com/Ignaciojeria/einar@v1.26.0' }" class="tooltip tooltip-top tooltip-accent" data-tip="copy">
-          <button x-on:click="navigator.clipboard.writeText(copyText)" class="btn btn-sm cursor-copy rounded-full font-mono font-light normal-case text-lg 2xl:btn-md 2xl:text-xl">
-              <pre><code x-text="copyText"></code></pre>
-          </button>
-      </div>
-      <h1 class="text-6xl font-bold text-white 2xl:text-7xl">
-          BUILD APPLICATIONS 
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-400 2xl:from-orange-500 2xl:to-red-500">FASTER.</span>
-      </h1>
-      <p class="text-2xl text-gray-400 font-bold mt-5 2xl:text-3xl 2xl:mt-6">
-          EinarCLI is a powerful command-line interface tool designed to 
-          <span class="text-orange-500 2xl:text-orange-500">supercharge</span>
-          your application development process.
-      </p>
-      <div class="mt-5 flex 2xl:mt-6">
-          <button class="btn btn-wide mr-4 2xl:btn-wide 2xl:mr-5">Getting Started</button>
-      </div>
+    <div class="flex flex-col justify-center items-start p-10 2xl:p-12">
+        <div x-data="{ copyText: 'go install github.com/Ignaciojeria/einar@v1.26.0' }" class="tooltip tooltip-top tooltip-accent" data-tip="copy">
+            <button x-on:click="navigator.clipboard.writeText(copyText)" class="btn btn-sm cursor-copy rounded-full font-mono font-light normal-case text-lg 2xl:btn-md 2xl:text-xl">
+                <pre><code x-text="copyText"></code></pre>
+            </button>
+        </div>
+        <h1 class="text-6xl font-bold text-white 2xl:text-7xl">
+            BUILD APPLICATIONS 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-400 2xl:from-orange-500 2xl:to-red-500">FASTER.</span>
+        </h1>
+        <p class="text-2xl text-gray-400 font-bold mt-5 2xl:text-3xl 2xl:mt-6">
+            EinarGPT is a powerful interface tool designed to 
+            <span class="text-orange-500 2xl:text-orange-500">supercharge</span>
+            your AI-driven development process.
+        </p>
+        <div class="mt-5 flex 2xl:mt-6">
+            <button 
+            hx-get="/quick-access" hx-headers='{{.FlatContext}}' hx-target="#topbar-component-default" hx-push-url="true" 
+            class="btn btn-wide mr-4 2xl:btn-wide 2xl:mr-5">START BUILDING</button>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-base-100 to-base-300 2xl:from-base-100 2xl:to-base-300">
+        <div class="hero-content flex-col lg:flex-row p-10 2xl:p-12">
+            <img src="https://i.ibb.co/pJw5MDr/Whats-App-Image-2023-11-07-at-15-08-28.jpg" class="w-64 rounded-lg shadow-2xl 2xl:w-72" />
+            <div>
+                <h1 class="text-4xl font-bold text-white 2xl:text-5xl">EinarGPT News!</h1>
+                <p class="py-8 2xl:py-10">
+                  Einar's beta phase is calling all Golang enthusiasts to play with the newest AI-driven full stack framework. Bring your brilliant ideas to life in a more intuitive way than ever before. Dive in, explore the possibilities, and be a part of the tech evolution. Join the Einar beta community today and start crafting!             </p>
+                <button 
+                hx-get="/quick-access" hx-headers='{{.FlatContext}}' hx-target="#topbar-component-default" hx-push-url="true" 
+                class="btn btn-neutral btn-wide 2xl:btn-wide">JOIN</button>
+            </div>
+        </div>
+    </div>
   </div>
-  
-  <div class="bg-gradient-to-r from-base-100 to-base-300 2xl:from-base-100 2xl:to-base-300">
-      <div class="hero-content flex-col lg:flex-row p-10 2xl:p-12">
-          <img src="https://i.ibb.co/pJw5MDr/Whats-App-Image-2023-11-07-at-15-08-28.jpg" class="w-64 rounded-lg shadow-2xl 2xl:w-72" />
-          <div>
-              <h1 class="text-4xl font-bold text-white 2xl:text-5xl">EinarCLI News!</h1>
-              <p class="py-8 2xl:py-10">
-                  Stay ahead of the curve! Dive into our latest updates, cutting-edge improvements, and thrilling news. Uncover the intricacies of our development, integration, and testing processes. Your journey into innovation begins here.
-              </p>
-              <button class="btn btn-neutral btn-wide 2xl:btn-wide">Explore now</button>
-          </div>
-      </div>
-  </div>
-</div>

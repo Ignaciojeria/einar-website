@@ -13,6 +13,8 @@ import (
 
 	_ "my-project-name/app/adapter/in/view/topbar/lessons"
 
+	_ "my-project-name/app/adapter/in/view/quick_access"
+
 	_ "my-project-name/app/adapter/in/view/topbar/events"
 
 	_ "my-project-name/app/adapter/in/view/topbar/docs"

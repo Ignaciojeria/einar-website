@@ -4,3 +4,12 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+
+.quick-access-mockup-code {
+    user-select: none; /* Standard syntax */
+    -webkit-user-select: none; /* WebKit */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+  

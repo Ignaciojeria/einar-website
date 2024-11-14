@@ -10,5 +10,30 @@
             "libraries": null
         }
     ],
-    "components": null
+    "components": [
+        {
+            "kind": "post-controller",
+            "name": "customers/chat-with-us"
+        },
+        {
+            "kind": "usecase",
+            "name": "customers/process-chat-with-us-message"
+        },
+        {
+            "kind": "post-controller",
+            "name": "customers/process-chat-request"
+        },
+        {
+            "kind": "usecase",
+            "name": "customers/process-chat-message"
+        },
+        {
+            "kind": "post-controller",
+            "name": "customers/handle-chat-message"
+        },
+        {
+            "kind": "post-controller",
+            "name": "customers/post-chat-message"
+        }
+    ]
 }

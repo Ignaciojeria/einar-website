@@ -11,6 +11,8 @@ import (
 	_ "einar-website-api/app/shared/infrastructure/serverwrapper"
 
 	ioc "github.com/Ignaciojeria/einar-ioc/v2"
+	_ "einar-website-api/app/customers/adapter/in/api"
+	_ "einar-website-api/app/customers/usecase"
 )
 
 //go:embed .version

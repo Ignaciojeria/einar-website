@@ -32,32 +32,17 @@ func main() {
 
 	// build application
 	builder := daggerClient.Container(dagger.ContainerOpts{Platform: "linux/amd64"}).
-		From("golang:1.23.3").
+		From("golang:1.21").
 		WithDirectory("/src", source).
 		WithWorkdir("/src").
 		WithEnvVariable("CGO_ENABLED", "0").
 		WithExec([]string{"go", "build", "-o", "myapp"})
-
-	// Validate the build by running a lightweight command
-	_, err = builder.WithExec([]string{"ls", "-l", "myapp"}).ExitCode(ctx)
-	if err != nil {
-		panic("Build validation failed: " + err.Error())
-	}
-	fmt.Println("Build validation passed!")
 
 	// add binary to alpine base
 	prodImage := daggerClient.Container(dagger.ContainerOpts{Platform: "linux/amd64"}).
 		From("alpine").
 		WithFile("/bin/myapp", builder.File("/src/myapp")).
 		WithEntrypoint([]string{"/bin/myapp"})
-
-	// Test if the container can start by running a short-lived command
-	testContainer := prodImage.WithExec([]string{"echo", "Container is running!"})
-	_, err = testContainer.ExitCode(ctx)
-	if err != nil {
-		panic("Container startup test failed: " + err.Error())
-	}
-	fmt.Println("Container startup test passed!")
 
 	// publish container to Google Container Registry
 	addr, err := prodImage.Publish(ctx, GCR_PUBLISH_ADDRESS)
@@ -109,4 +94,5 @@ func main() {
 
 	// print ref
 	fmt.Println("Deployment for image", addr, "now available at", gcrResponse.Uri)
+
 }

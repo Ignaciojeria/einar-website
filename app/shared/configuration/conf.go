@@ -28,7 +28,7 @@ func NewConf(env EnvLoader) (Conf, error) {
 		GOOGLE_PROJECT_ID: env.Get("GOOGLE_PROJECT_ID"),
 	}
 	if conf.PORT == "" {
-		conf.PORT = "8080"
+		conf.PORT = "80"
 	}
 	return validateConfig(conf)
 }

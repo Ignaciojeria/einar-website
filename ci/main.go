@@ -32,7 +32,7 @@ func main() {
 
 	// build application
 	builder := daggerClient.Container(dagger.ContainerOpts{Platform: "linux/amd64"}).
-		From("golang:1.21").
+		From("golang:1.23").
 		WithDirectory("/src", source).
 		WithWorkdir("/src").
 		WithEnvVariable("CGO_ENABLED", "0").

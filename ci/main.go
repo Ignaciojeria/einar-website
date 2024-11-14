@@ -38,11 +38,26 @@ func main() {
 		WithEnvVariable("CGO_ENABLED", "0").
 		WithExec([]string{"go", "build", "-o", "myapp"})
 
+	// Validate the build by executing the binary
+	_, err = builder.WithExec([]string{"./myapp"}).ExitCode(ctx)
+	if err != nil {
+		panic("Build validation failed: " + err.Error())
+	}
+	fmt.Println("Build validation passed!")
+
 	// add binary to alpine base
 	prodImage := daggerClient.Container(dagger.ContainerOpts{Platform: "linux/amd64"}).
 		From("alpine").
 		WithFile("/bin/myapp", builder.File("/src/myapp")).
 		WithEntrypoint([]string{"/bin/myapp"})
+
+	// Test the container locally
+	testContainer := prodImage.WithExec([]string{"ping", "-c", "1", "localhost"})
+	_, err = testContainer.ExitCode(ctx)
+	if err != nil {
+		panic("Container ping failed: " + err.Error())
+	}
+	fmt.Println("Container ping test passed!")
 
 	// publish container to Google Container Registry
 	addr, err := prodImage.Publish(ctx, GCR_PUBLISH_ADDRESS)
@@ -94,5 +109,4 @@ func main() {
 
 	// print ref
 	fmt.Println("Deployment for image", addr, "now available at", gcrResponse.Uri)
-
 }

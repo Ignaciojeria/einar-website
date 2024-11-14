@@ -1,6 +1,6 @@
 module einar-website-api
 
-go 1.23
+go 1.23.3
 
 require (
 	cloud.google.com/go/run v1.6.1

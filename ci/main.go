@@ -71,7 +71,7 @@ func main() {
 						Ports: []*runpb.ContainerPort{
 							{
 								Name:          "http1",
-								ContainerPort: 80,
+								ContainerPort: 8080,
 							},
 						},
 					},

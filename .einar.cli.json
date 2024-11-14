@@ -1,70 +1,14 @@
 {
-    "version": "${version}",
-    "project": "my-project-name",
+    "project": "einar-website-api",
     "template": {
-        "id": "d11193b5-a7b7-435f-823b-4d36edb4f5d2",
-        "url": "https://github.com/Ignaciojeria/einar-cli-template"
+        "tag": "v2.8.0",
+        "url": "https://github.com/Ignaciojeria/einar-cli-template-v2"
     },
     "installations": [
         {
-            "name": "echo-server",
-            "libraries": [
-                "github.com/labstack/echo/v4",
-                "github.com/labstack/echo/v4/middleware"
-            ]
-        },
-        {
-            "name": "web-components",
-            "libraries": []
-        },
-        {
-            "name": "firestore",
-            "libraries": [
-                "cloud.google.com/go/firestore",
-                "firebase.google.com/go"
-            ]
+            "name": "labstack-echo",
+            "libraries": null
         }
     ],
-    "components": [
-        {
-            "kind": "web-component",
-            "name": "topbar"
-        },
-        {
-            "kind": "web-component",
-            "name": "home"
-        },
-        {
-            "kind": "web-component",
-            "name": "lessons"
-        },
-        {
-            "kind": "web-component",
-            "name": "events"
-        },
-        {
-            "kind": "web-component",
-            "name": "docs"
-        },
-        {
-            "kind": "web-component",
-            "name": "start-building"
-        },
-        {
-            "kind": "usecase",
-            "name": "quick-access"
-        },
-        {
-            "kind": "firestore-repository",
-            "name": "find-user-by-email"
-        },
-        {
-            "kind": "firestore-repository",
-            "name": "save-user"
-        },
-        {
-            "kind": "web-component",
-            "name": "quick-access"
-        }
-    ]
+    "components": null
 }

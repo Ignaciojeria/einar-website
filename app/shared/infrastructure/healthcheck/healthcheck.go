@@ -23,4 +23,7 @@ func healthCheck(e serverwrapper.EchoWrapper, c configuration.Conf) {
 			Version: c.VERSION,
 		}), health.WithSystemInfo())
 	e.GET("/health", echo.WrapHandler(h.Handler()))
+	e.GET("/", func(c echo.Context) error {
+		return c.String(200, "")
+	})
 }
